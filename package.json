@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=./",
-    "preview": "vite preview"
+    "build": "npx vite build --base=./",
+    "preview": "vite preview",
+    "postinstall": "chmod +x node_modules/.bin/* || true"
   },
   "dependencies": {
     "react": "^18.3.1",

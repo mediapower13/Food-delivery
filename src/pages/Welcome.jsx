@@ -8,16 +8,16 @@ const perks = [
 
 export default function Welcome() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-6 md:py-10 flex-1">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <div className="text-brandOrange font-semibold italic text-xl md:text-2xl">
+          <div className="text-[#FF7A18] font-normal italic text-xl md:text-2xl" style={{ fontFamily: "'Island Moments', cursive" }}>
             Chuks Kitchen
           </div>
           <Link
             to="/login"
-            className="px-6 py-2 rounded-btn border-2 border-brandBlue text-brandBlue font-semibold text-sm hover:bg-brandBlue/5 transition-colors"
+            className="px-6 py-2.5 rounded-lg border-2 border-[#007BFF] text-[#007BFF] font-semibold text-sm hover:bg-[#007BFF]/5 transition-colors"
           >
             Sign In
           </Link>
@@ -37,6 +37,10 @@ export default function Welcome() {
 
             {/* Right - Content Section */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
+              <div className="text-[#FF7A18] font-normal italic text-2xl mb-6" style={{ fontFamily: "'Island Moments', cursive" }}>
+                Chuks Kitchen
+              </div>
+              
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold text-textDark">
                   Your Authentic Taste of Nigeria
@@ -64,15 +68,15 @@ export default function Welcome() {
               {/* CTA Buttons */}
               <div className="mt-8 space-y-3">
                 <Link
-                  to="/explore"
-                  className="inline-flex w-full h-12 items-center justify-center rounded-btn bg-brandOrange text-white font-semibold hover:bg-brandOrange/90 transition-colors"
+                  to="/signup"
+                  className="inline-flex w-full h-12 items-center justify-center rounded-lg bg-[#FF7A18] text-white font-semibold hover:bg-[#FF7A18]/90 transition-colors"
                 >
                   Start Your Order
                 </Link>
 
                 <Link
-                  to="/explore"
-                  className="inline-flex w-full h-12 items-center justify-center rounded-btn border-2 border-brandBlue text-brandBlue font-semibold hover:bg-brandBlue/5 transition-colors"
+                  to="/login"
+                  className="inline-flex w-full h-12 items-center justify-center rounded-lg border-2 border-[#007BFF] text-[#007BFF] font-semibold hover:bg-[#007BFF]/5 transition-colors"
                 >
                   Learn More About Us
                 </Link>
@@ -80,7 +84,7 @@ export default function Welcome() {
 
               {/* Footer Text */}
               <div className="mt-8 text-center text-xs text-textDark/50">
-                © 2025 Chuks Kitchen · <Link to="#" className="hover:text-brandBlue">Privacy Policy</Link> · <Link to="#" className="hover:text-brandBlue">Terms of Service</Link>
+                © 2025 Chuks Kitchen · <Link to="#" className="hover:text-[#007BFF]">Privacy Policy</Link> · <Link to="#" className="hover:text-[#007BFF]">Terms of Service</Link>
               </div>
             </div>
           </div>
@@ -93,7 +97,7 @@ export default function Welcome() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Brand Section */}
             <div>
-              <div className="text-brandOrange font-semibold italic text-2xl mb-3">
+              <div className="text-[#FF7A18] font-normal italic text-2xl mb-3" style={{ fontFamily: "'Island Moments', cursive" }}>
                 Chuks Kitchen
               </div>
               <p className="text-white/80 text-sm leading-relaxed max-w-xs">

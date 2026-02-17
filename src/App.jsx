@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Layout from "./components/layout/Layout";
 
 import Home from "./pages/Home";
@@ -15,6 +16,11 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Placeholder from "./pages/Placeholder";
 
+function ProtectedRoute({ children }) {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  return isAuthenticated ? children : <Navigate to="/welcome" replace />;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -22,100 +28,106 @@ export default function App() {
         {/* marketing/onboarding */}
         <Route
           path="/welcome"
-          element={
-            <Layout>
-              <Welcome />
-            </Layout>
-          }
+          element={<Welcome />}
         />
         <Route
           path="/login"
-          element={
-            <Layout>
-              <Login />
-            </Layout>
-          }
+          element={<Login />}
         />
         <Route
           path="/signup"
-          element={
-            <Layout>
-              <Signup />
-            </Layout>
-          }
+          element={<Signup />}
         />
 
         {/* main app */}
         <Route
           path="/"
           element={
-            <Layout>
-              <Home />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Home />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/explore"
           element={
-            <Layout>
-              <Explore />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Explore />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/food/:id"
           element={
-            <Layout>
-              <FoodDetails />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <FoodDetails />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/cart"
           element={
-            <Layout>
-              <Cart />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Cart />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/order-summary"
           element={
-            <Layout>
-              <OrderSummary />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <OrderSummary />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/delivery"
           element={
-            <Layout>
-              <DeliveryDetails />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <DeliveryDetails />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/payment"
           element={
-            <Layout>
-              <Payment />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Payment />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/card-loading"
           element={
-            <Layout>
-              <CardLoading />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <CardLoading />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/order-success"
           element={
-            <Layout>
-              <OrderSuccess />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <OrderSuccess />
+              </Layout>
+            </ProtectedRoute>
           }
         />
 
@@ -123,17 +135,21 @@ export default function App() {
         <Route
           path="/my-orders"
           element={
-            <Layout>
-              <Placeholder title="My Orders" />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Placeholder title="My Orders" />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/account"
           element={
-            <Layout>
-              <Placeholder title="Account" />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Placeholder title="Account" />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route

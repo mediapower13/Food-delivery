@@ -1,5 +1,5 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useMemo, useState, useEffect } from "react";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -32,10 +32,23 @@ function NavItem({ to, label, onClick }) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const shouldShowLogin = useMemo(() => {
+  useEffect(() => {
+    setIsAuthenticated(localStorage.getItem('isAuthenticated') === 'true');
+  }, [location]);
+
+  const shouldShowAuthButton = useMemo(() => {
     return !["/login", "/signup", "/welcome"].includes(location.pathname);
   }, [location.pathname]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated');
+    setIsAuthenticated(false);
+    setOpen(false);
+    navigate('/welcome');
+  };
 
   return (
     <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
@@ -54,13 +67,24 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3 flex-none order-2">
-            {shouldShowLogin && (
-              <Link
-                to="/login"
-                className="hidden md:flex flex-row justify-center items-center px-6 gap-4 w-40 h-[54px] bg-[#FF7A18] rounded-[10px] text-white text-base font-semibold leading-6 hover:bg-[#FF7A18]/90 transition-colors"
-              >
-                Login
-              </Link>
+            {shouldShowAuthButton && (
+              <>
+                {isAuthenticated ? (
+                  <button
+                    onClick={handleLogout}
+                    className="hidden md:flex flex-row justify-center items-center px-6 gap-4 w-40 h-[54px] bg-[#FF7A18] rounded-[10px] text-white text-base font-semibold leading-6 hover:bg-[#FF7A18]/90 transition-colors"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="hidden md:flex flex-row justify-center items-center px-6 gap-4 w-40 h-[54px] bg-[#FF7A18] rounded-[10px] text-white text-base font-semibold leading-6 hover:bg-[#FF7A18]/90 transition-colors"
+                  >
+                    Login
+                  </Link>
+                )}
+              </>
             )}
 
             <button
@@ -110,14 +134,25 @@ export default function Header() {
             </div>
 
             <div className="mt-auto pt-6 border-t border-gray-100">
-              {shouldShowLogin && (
-                <Link
-                  to="/login"
-                  onClick={() => setOpen(false)}
-                  className="inline-flex w-full items-center justify-center h-12 rounded-lg bg-brandOrange text-white font-semibold shadow-md hover:bg-brandOrange/90 transition-colors"
-                >
-                  Login
-                </Link>
+              {shouldShowAuthButton && (
+                <>
+                  {isAuthenticated ? (
+                    <button
+                      onClick={handleLogout}
+                      className="inline-flex w-full items-center justify-center h-12 rounded-lg bg-brandOrange text-white font-semibold shadow-md hover:bg-brandOrange/90 transition-colors"
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <Link
+                      to="/login"
+                      onClick={() => setOpen(false)}
+                      className="inline-flex w-full items-center justify-center h-12 rounded-lg bg-brandOrange text-white font-semibold shadow-md hover:bg-brandOrange/90 transition-colors"
+                    >
+                      Login
+                    </Link>
+                  )}
+                </>
               )}
             </div>
           </div>

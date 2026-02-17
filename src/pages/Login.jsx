@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // Set authentication state
+    localStorage.setItem('isAuthenticated', 'true');
+    // Redirect to home
+    navigate('/');
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <div className="bg-white rounded-card shadow-soft border border-black/5 overflow-hidden">
@@ -59,12 +68,12 @@ export default function Login() {
                 </div>
               </div>
 
-              <Link
-                to="/explore"
+              <button
+                onClick={handleLogin}
                 className="inline-flex w-full h-12 items-center justify-center rounded-btn bg-brandOrange text-white font-semibold"
               >
                 Continue
-              </Link>
+              </button>
 
               <div className="text-center text-xs text-textDark/50">Or continue with</div>
 

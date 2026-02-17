@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-softGray text-textDark;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(255, 107, 0, 0.35);
+  outline-offset: 2px;
+}

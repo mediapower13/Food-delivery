@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function Footer() {
+export default function Footer({ noMargin = false }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-[#5C4033] text-white mt-20 relative">
+    <footer className={`bg-[#5C4033] text-white relative ${noMargin ? '' : 'mt-20'}`}>
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           {/* Brand Section */}

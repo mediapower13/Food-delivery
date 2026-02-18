@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../components/layout/Footer";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,17 +12,18 @@ export default function Login() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-      <div className="bg-white rounded-card shadow-soft border border-black/5 overflow-hidden">
-        <div className="grid md:grid-cols-2">
-          <div className="relative min-h-[420px]">
+    <>
+      <div className="min-h-screen bg-white md:bg-transparent">
+        <div className="bg-white rounded-none shadow-none border-0 overflow-hidden">
+          <div className="grid md:grid-cols-2 md:min-h-screen">
+            <div className="hidden md:block relative min-h-[420px]">
             <img
               src="/images/img1.png"
               alt="Login"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-brandOrange/60" />
-            <div className="relative p-10 text-white">
+            <div className="relative h-full flex flex-col items-center justify-center text-center p-10 text-white">
               <div className="text-4xl font-extrabold">Chuks Kitchen</div>
               <p className="mt-3 max-w-sm text-white/95">
                 Your journey to delicious, authentic Nigerian meals starts here.
@@ -30,17 +32,17 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="p-8 md:p-10">
+          <div className="px-6 py-8 md:p-8 md:p-10 md:min-h-0 md:flex md:flex-col md:justify-center">
             <div className="text-center">
               <div className="text-brandOrange font-semibold italic text-2xl">
                 Chuks Kitchen
               </div>
-              <h1 className="mt-2 text-2xl font-extrabold">Login your Account</h1>
+              <h1 className="mt-2 text-2xl font-bold text-textDark">Login your Account</h1>
             </div>
 
             <div className="mt-6 space-y-4">
               <div>
-                <div className="text-sm font-semibold">Email or phone number</div>
+                <div className="text-sm font-medium text-textDark/80">Email or phone number</div>
                 <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11">
                   <span className="text-textDark/40">✉</span>
                   <input
@@ -51,7 +53,7 @@ export default function Login() {
               </div>
 
               <div>
-                <div className="text-sm font-semibold">Password</div>
+                <div className="text-sm font-medium text-textDark/80">Password</div>
                 <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11">
                   <span className="text-textDark/40">🔒</span>
                   <input
@@ -95,7 +97,7 @@ export default function Login() {
               </button>
 
               <div className="text-center text-sm text-textDark/60">
-                Don&apos;t have an account?{" "}
+                Don't have an account?{' '}
                 <Link to="/signup" className="text-brandBlue">
                   Create an account
                 </Link>
@@ -105,5 +107,9 @@ export default function Login() {
         </div>
       </div>
     </div>
+    <div className="hidden md:block">
+      <Footer noMargin={true} />
+    </div>
+    </>
   );
 }

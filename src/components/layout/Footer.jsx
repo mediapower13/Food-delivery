@@ -12,7 +12,7 @@ export default function Footer({ noMargin = false }) {
   }, []);
 
   return (
-    <footer className={`bg-[#5C4033] text-white relative ${noMargin ? '' : 'mt-20'}`}>
+    <footer className={`bg-[#5C4033] text-white relative ${noMargin ? '' : 'mt-20'} hidden md:block`}>
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           {/* Brand Section */}

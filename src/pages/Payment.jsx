@@ -22,88 +22,178 @@ export default function Payment() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-8">
-      <div className="mx-auto max-w-xl px-4">
-        <h1 className="text-2xl md:text-3xl font-bold mb-8">Payment</h1>
+    <div className="min-h-screen bg-white">
+      {/* Mobile View */}
+      <div className="md:hidden px-4 py-6">
+        <h1 className="text-2xl font-bold mb-6">Payment</h1>
 
-        <div className="bg-white p-8">
-
-          <div className="mb-8">
-            <div className="text-base font-bold mb-4">Pay With:</div>
-            <div className="flex items-center gap-8 text-sm">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  checked={method === "card"}
-                  onChange={() => setMethod("card")}
-                  className="w-4 h-4 accent-brandOrange"
-                />
-                <span className={method === "card" ? "font-medium text-textDark" : "text-textDark/60"}>Card</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  checked={method === "bank"}
-                  onChange={() => setMethod("bank")}
-                  className="w-4 h-4 accent-brandOrange"
-                />
-                <span className={method === "bank" ? "font-medium text-textDark" : "text-textDark/60"}>Bank</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  checked={method === "transfer"}
-                  onChange={() => setMethod("transfer")}
-                  className="w-4 h-4 accent-brandOrange"
-                />
-                <span className={method === "transfer" ? "font-medium text-textDark" : "text-textDark/60"}>Transfer</span>
-              </label>
-            </div>
-          </div>
-
-          <div className="space-y-5">
-            <div>
-              <div className="text-base font-bold mb-2">Card Number</div>
+        <div className="mb-6">
+          <div className="text-base font-bold mb-4">Pay with..</div>
+          <div className="flex items-center gap-6 text-sm">
+            <label className="flex items-center gap-2 cursor-pointer">
               <input
-                className="w-full h-11 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
-                placeholder="1234 5678 9101 1121"
+                type="radio"
+                checked={method === "card"}
+                onChange={() => setMethod("card")}
+                className="w-5 h-5 accent-green-500"
               />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-base font-bold mb-2">Expiration Date</div>
-                <input
-                  className="w-full h-11 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
-                  placeholder="MM/YY"
-                />
-              </div>
-              <div>
-                <div className="text-base font-bold mb-2">CVV</div>
-                <input
-                  className="w-full h-11 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
-                  placeholder="123"
-                  type="password"
-                />
-              </div>
-            </div>
-
-            <label className="flex items-center gap-2 text-sm text-textDark/70 cursor-pointer">
-              <input type="checkbox" className="w-4 h-4 accent-brandOrange rounded" />
-              <span>Save card details</span>
+              <span className={method === "card" ? "font-medium text-textDark" : "text-textDark/40"}>
+                Card
+              </span>
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                checked={method === "bank"}
+                onChange={() => setMethod("bank")}
+                className="w-5 h-5 accent-green-500"
+              />
+              <span className={method === "bank" ? "font-medium text-textDark" : "text-textDark/40"}>
+                Bank
+              </span>
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                checked={method === "transfer"}
+                onChange={() => setMethod("transfer")}
+                className="w-5 h-5 accent-green-500"
+              />
+              <span className={method === "transfer" ? "font-medium text-textDark" : "text-textDark/40"}>
+                Transfer
+              </span>
             </label>
           </div>
+        </div>
 
-          <button
-            onClick={pay}
-            className="mt-6 w-full h-12 rounded-lg bg-brandOrange text-white font-semibold hover:bg-brandOrange/90 transition-colors"
-          >
-            Pay {formatNaira(total)}
-          </button>
+        <div className="space-y-5">
+          <div>
+            <div className="text-base font-bold mb-3">Card Number</div>
+            <input
+              className="w-full h-12 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
+              placeholder="1234 5678 9101 1121"
+            />
+          </div>
 
-          <p className="mt-4 text-xs text-textDark/40 text-center leading-relaxed">
-            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
-          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <div className="text-base font-bold mb-3">Expiration Date</div>
+              <input
+                className="w-full h-12 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
+                placeholder="MM/YY"
+              />
+            </div>
+            <div>
+              <div className="text-base font-bold mb-3">CVV</div>
+              <input
+                className="w-full h-12 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
+                placeholder="123"
+                type="password"
+              />
+            </div>
+          </div>
+
+          <label className="flex items-center gap-2 text-sm text-textDark/70 cursor-pointer">
+            <input type="checkbox" className="w-4 h-4 accent-brandOrange rounded" />
+            <span>Save card details</span>
+          </label>
+        </div>
+
+        <button
+          onClick={pay}
+          className="mt-6 w-full h-12 rounded-lg bg-brandOrange text-white font-semibold hover:bg-brandOrange/90 transition-colors"
+        >
+          Pay {formatNaira(total)}
+        </button>
+
+        <p className="mt-4 text-xs text-textDark/40 text-center leading-relaxed">
+          Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
+        </p>
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden md:block py-8">
+        <div className="mx-auto max-w-xl px-4">
+          <h1 className="text-2xl md:text-3xl font-bold mb-8">Payment</h1>
+
+          <div className="bg-white p-8">
+            <div className="mb-8">
+              <div className="text-base font-bold mb-4">Pay With:</div>
+              <div className="flex items-center gap-8 text-sm">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    checked={method === "card"}
+                    onChange={() => setMethod("card")}
+                    className="w-4 h-4 accent-brandOrange"
+                  />
+                  <span className={method === "card" ? "font-medium text-textDark" : "text-textDark/60"}>Card</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    checked={method === "bank"}
+                    onChange={() => setMethod("bank")}
+                    className="w-4 h-4 accent-brandOrange"
+                  />
+                  <span className={method === "bank" ? "font-medium text-textDark" : "text-textDark/60"}>Bank</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    checked={method === "transfer"}
+                    onChange={() => setMethod("transfer")}
+                    className="w-4 h-4 accent-brandOrange"
+                  />
+                  <span className={method === "transfer" ? "font-medium text-textDark" : "text-textDark/60"}>Transfer</span>
+                </label>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <div className="text-base font-bold mb-2">Card Number</div>
+                <input
+                  className="w-full h-11 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
+                  placeholder="1234 5678 9101 1121"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <div className="text-base font-bold mb-2">Expiration Date</div>
+                  <input
+                    className="w-full h-11 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
+                    placeholder="MM/YY"
+                  />
+                </div>
+                <div>
+                  <div className="text-base font-bold mb-2">CVV</div>
+                  <input
+                    className="w-full h-11 border border-gray-300 rounded-lg px-4 text-sm focus:outline-none focus:border-brandOrange"
+                    placeholder="123"
+                    type="password"
+                  />
+                </div>
+              </div>
+
+              <label className="flex items-center gap-2 text-sm text-textDark/70 cursor-pointer">
+                <input type="checkbox" className="w-4 h-4 accent-brandOrange rounded" />
+                <span>Save card details</span>
+              </label>
+            </div>
+
+            <button
+              onClick={pay}
+              className="mt-6 w-full h-12 rounded-lg bg-brandOrange text-white font-semibold hover:bg-brandOrange/90 transition-colors"
+            >
+              Pay {formatNaira(total)}
+            </button>
+
+            <p className="mt-4 text-xs text-textDark/40 text-center leading-relaxed">
+              Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
+            </p>
+          </div>
         </div>
       </div>
     </div>

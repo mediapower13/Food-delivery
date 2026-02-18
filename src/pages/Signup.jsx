@@ -24,7 +24,7 @@ export default function Signup() {
             />
             <div className="absolute inset-0 bg-brandOrange/60" />
             <div className="relative h-full flex flex-col items-center justify-center text-center p-10 text-white">
-              <div className="text-4xl font-extrabold">Chuks Kitchen</div>
+              <div style={{ fontFamily: "'Island Moments', cursive", fontSize: '40.8084px', lineHeight: '41px', fontWeight: 400, color: '#FF7A18' }}>Chuks Kitchen</div>
               <p className="mt-3 max-w-sm text-white/95">
                 Your journey to delicious, authentic Nigerian meals starts here.
                 Sign up or log in to order your favorites today!
@@ -32,9 +32,9 @@ export default function Signup() {
             </div>
           </div>
 
-          <div className="px-6 py-8 md:p-8 md:p-10 md:min-h-0 md:flex md:flex-col md:justify-center">
+          <div className="px-6 py-8 md:p-10 md:min-h-0 md:flex md:flex-col md:justify-center">
             <div className="text-center">
-              <div className="text-brandOrange font-semibold italic text-2xl">
+              <div className="text-brandOrange font-semibold italic text-3xl" style={{ fontFamily: "'Island Moments', cursive" }}>
                 Chuks Kitchen
               </div>
               <h1 className="mt-2 text-2xl font-bold text-textDark">Create Your Account</h1>
@@ -43,7 +43,7 @@ export default function Signup() {
             <div className="mt-6 space-y-4">
               <div>
                 <div className="text-sm font-medium text-textDark/80">Email</div>
-                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11">
+                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11 focus-within:border-brandBlue focus-within:ring-1 focus-within:ring-brandBlue">
                   <span className="text-textDark/40">✉</span>
                   <input
                     className="w-full outline-none text-sm"
@@ -54,7 +54,7 @@ export default function Signup() {
 
               <div>
                 <div className="text-sm font-medium text-textDark/80">Phone number</div>
-                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11">
+                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11 focus-within:border-brandBlue focus-within:ring-1 focus-within:ring-brandBlue">
                   <span className="text-textDark/40">📞</span>
                   <input
                     className="w-full outline-none text-sm"
@@ -65,7 +65,7 @@ export default function Signup() {
 
               <div>
                 <div className="text-sm font-medium text-textDark/80">Password</div>
-                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11">
+                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11 focus-within:border-brandBlue focus-within:ring-1 focus-within:ring-brandBlue">
                   <span className="text-textDark/40">🔒</span>
                   <input
                     className="w-full outline-none text-sm"
@@ -80,7 +80,7 @@ export default function Signup() {
 
               <div>
                 <div className="text-sm font-medium text-textDark/80">Confirm password</div>
-                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11">
+                <div className="mt-2 flex items-center gap-2 border border-black/10 rounded-btn px-3 h-11 focus-within:border-brandBlue focus-within:ring-1 focus-within:ring-brandBlue">
                   <span className="text-textDark/40">🔒</span>
                   <input
                     className="w-full outline-none text-sm"
@@ -94,7 +94,7 @@ export default function Signup() {
               </div>
 
               <label className="flex items-start gap-2 text-xs text-textDark/60">
-                <input type="checkbox" className="mt-0.5 accent-brandOrange" defaultChecked />
+                <input type="checkbox" className="mt-0.5 accent-brandBlue" defaultChecked />
                 <span>
                   I agree to the{' '}
                   <span className="text-brandBlue">Terms &amp; Conditions</span> and{' '}

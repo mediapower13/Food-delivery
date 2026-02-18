@@ -35,13 +35,13 @@ export default function Welcome() {
           {/* Mobile Content */}
           <div className="px-6 pb-8">
             <div className="text-center mb-6">
-              <div className="text-brandOrange font-semibold italic text-2xl mb-4">
+              <div className="text-brandOrange font-semibold italic text-5xl md:text-6xl mb-4" style={{ fontFamily: "'Island Moments', cursive" }}>
                 Chuks Kitchen
               </div>
-              <h1 className="text-2xl font-bold text-textDark mb-3">
+              <h1 className="text-3xl font-bold text-textDark mb-3">
                 Your Authentic Taste of Nigeria
               </h1>
-              <p className="text-textDark/70 text-sm leading-relaxed">
+              <p className="text-textDark/70 text-base leading-relaxed">
                 Experience homemade flavors delivered fresh to your desk or home. We bring the rich culinary heritage of Nigeria right to your doorstep.
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function Welcome() {
           <div className="min-h-screen flex flex-col p-8 md:p-12">
             {/* Header with Logo and Sign In */}
             <div className="flex items-center justify-between mb-12">
-              <div className="text-brandOrange font-semibold italic text-2xl">
+              <div className="text-brandOrange font-semibold italic text-5xl md:text-6xl" style={{ fontFamily: "'Island Moments', cursive" }}>
                 Chuks Kitchen
               </div>
               <Link
@@ -109,10 +109,10 @@ export default function Welcome() {
             {/* Main Content - Centered */}
             <div className="flex-1 flex flex-col justify-center">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-textDark">
+                <h1 className="text-4xl md:text-5xl font-bold text-textDark">
                   Your Authentic Taste of Nigeria
                 </h1>
-                <p className="mt-4 text-textDark/70 leading-relaxed">
+                <p className="mt-4 text-textDark/70 text-lg leading-relaxed">
                   Experience homemade flavors delivered fresh to your desk or home. We bring the rich culinary heritage of Nigeria right to your doorstep.
                 </p>
               </div>

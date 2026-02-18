@@ -80,7 +80,116 @@ export default function FoodDetails() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="mx-auto max-w-7xl px-4 py-6">
+      {/* Mobile View */}
+      <div className="md:hidden">
+        <div className="relative">
+          {/* Image */}
+          <img
+            src={food.image}
+            alt={food.name}
+            className="w-full h-64 object-cover"
+          />
+          
+          {/* Close Button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute right-4 top-4 h-8 w-8 rounded-sm bg-black text-white flex items-center justify-center hover:bg-black/80 transition-colors text-lg"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div className="px-4 py-6">
+          <h1 className="text-2xl font-bold text-textDark">{food.name}</h1>
+          <div className="mt-2">
+            <Price value={totalPrice} className="text-brandOrange font-bold text-xl" />
+          </div>
+
+          <p className="mt-4 text-sm text-textDark/70 leading-relaxed">
+            {food.description || "Our signature Jollof rice, cooked to perfection with aromatic spices, served with juicy, golden-fried chicken. A classic Nigerian comfort food, rich in flavor and satisfying. Perfect for a quick lunch or a hearty dinner."}
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-50 text-xs text-textDark/70">
+              <span className="text-orange-500">⚠</span> Mildly spicy
+            </span>
+            <button className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-xs text-brandBlue hover:bg-blue-100 transition-colors">
+              <span>ℹ</span> View Allergies
+            </button>
+          </div>
+
+          <div className="mt-4 flex items-center gap-2 text-xs text-textDark/60">
+            <span>🥗</span>
+            <span>Vegetarian option available</span>
+          </div>
+
+          <h2 className="mt-6 font-bold text-lg">Choose your Protein</h2>
+          <div className="mt-3 space-y-2">
+            {proteinOptions.map((p) => (
+              <label
+                key={p.id}
+                className="flex items-center justify-between border border-gray-200 rounded-lg px-4 py-3 cursor-pointer hover:border-brandOrange transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <input
+                    type="radio"
+                    name="protein"
+                    checked={protein === p.id}
+                    onChange={() => setProtein(p.id)}
+                    className="w-5 h-5 accent-brandOrange"
+                  />
+                  <span className="text-sm font-medium">{p.label}</span>
+                </div>
+                <div className="text-sm text-textDark/60">
+                  {p.extra === 0 ? "(Default)" : `+${formatNaira(p.extra)}`}
+                </div>
+              </label>
+            ))}
+          </div>
+
+          <h2 className="mt-6 font-bold text-lg">Extra Sides (Optional)</h2>
+          <div className="mt-3 space-y-2">
+            {extraSides.map((s) => (
+              <label
+                key={s.id}
+                className="flex items-center justify-between border border-gray-200 rounded-lg px-4 py-3 cursor-pointer hover:border-brandOrange transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={sides.has(s.id)}
+                    onChange={() => toggleSide(s.id)}
+                    className="w-5 h-5 accent-brandOrange rounded"
+                  />
+                  <span className="text-sm font-medium">{s.label}</span>
+                </div>
+                <div className="text-sm text-textDark/60">
+                  +{formatNaira(s.extra)}
+                </div>
+              </label>
+            ))}
+          </div>
+
+          <h2 className="mt-6 font-bold text-lg">Special Instructions</h2>
+          <textarea
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+            className="mt-3 w-full min-h-[100px] border border-gray-200 rounded-lg p-3 text-sm focus:outline-none focus:border-brandOrange resize-none"
+            placeholder="E.g no onion, food is too spicy, food is too hot hhhhhhhhhhh&#10;food is tasty"
+          />
+
+          <button
+            onClick={handleAdd}
+            className="mt-6 w-full h-12 rounded-lg bg-brandOrange text-white font-semibold hover:bg-brandOrange/90 transition-colors shadow-md"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop View */}
+      <section className="hidden md:block mx-auto max-w-7xl px-4 py-6">
         <div className="grid gap-0 md:grid-cols-[1fr_1fr]">
           {/* Left - Image Section */}
           <div className="overflow-hidden bg-white">

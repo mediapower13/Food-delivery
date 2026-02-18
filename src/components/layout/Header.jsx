@@ -52,10 +52,10 @@ export default function Header() {
 
   return (
     <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-      <div className="mx-auto max-w-[1440px] px-12">
-        <div className="flex flex-row items-start py-[18px] gap-[45px] h-[90px]">
-          <Link to="/" className="flex items-center flex-none order-0">
-            <span className="text-[#FF7A18] font-normal italic text-[40.8084px] leading-[41px] h-[41px]" style={{ fontFamily: "'Island Moments', cursive" }}>
+      <div className="mx-auto max-w-[1440px] px-1 md:px-12">
+        <div className="flex flex-row items-center justify-between md:items-start py-[18px] md:gap-[45px] h-[90px]">
+          <Link to="/" className="flex items-center flex-none order-0 pl-1 md:pl-0">
+            <span className="text-[#FF7A18] font-normal italic text-[28px] md:text-[40.8084px] leading-[41px] h-[41px]" style={{ fontFamily: "'Island Moments', cursive" }}>
               Chuks Kitchen
             </span>
           </Link>
@@ -88,7 +88,7 @@ export default function Header() {
             )}
 
             <button
-              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-200 hover:bg-gray-50"
+              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-200 hover:bg-gray-50 mr-1"
               aria-label="Open menu"
               onClick={() => setOpen(true)}
             >

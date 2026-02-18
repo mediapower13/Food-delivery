@@ -94,7 +94,7 @@ export default function Home() {
         </div>
 
         {/* Search Bar */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-12 md:top-[975px] md:bottom-auto w-full max-w-[90%] md:max-w-[1069px] px-4 md:px-0">
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-6 md:top-[975px] md:bottom-auto w-full max-w-[90%] md:max-w-[1069px] px-4 md:px-0">
           <div className="bg-white rounded-lg overflow-hidden h-14 md:h-[78px]" style={{ boxShadow: '0px 6px 30px 5px rgba(0, 0, 0, 0.12)' }}>
             <div className="flex items-center gap-4 px-4 md:px-4 h-full">
               <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@ export default function Home() {
           Popular Categories
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           {popularCategories.map((c, idx) => (
             <CategoryCard key={idx} title={c.title} image={c.image} to={c.to} />
           ))}
